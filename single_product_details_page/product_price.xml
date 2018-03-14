@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<t t-name="website_sale.product_price">
+        <style>
+            .product_price_fontcolor{
+                color: #252525;
+            }
+            .bdt_symbol, .shoppg_prod_price{
+                display: inline;
+                font-weight: bold;
+            }
+            .bdt_symbol{
+                font-size: 30px;
+            }
+        </style>
+      <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price mt16">
+          
+          <h3 class='product_price_fontcolor'> 
+            <p class='bdt_symbol'>৳</p> 
+            <p class='shoppg_prod_price' t-field='product.website_price' />
+          </h3>
+          
+          <h3 class="product_price_fontcolor css_non_editable_mode_hidden decimal_precision" t-att-data-precision="str(product.currency_id.decimal_places)">
+            <span t-field="product.lst_price" t-options="{                    &quot;widget&quot;: &quot;monetary&quot;,                    &quot;display_currency&quot;: product.currency_id,                }"/>
+          </h3>
+          <h3 class="hidden oe_not_available product_price_fontcolor bg-warning">Product not available</h3>
+      </div>
+    </t>
+
+    

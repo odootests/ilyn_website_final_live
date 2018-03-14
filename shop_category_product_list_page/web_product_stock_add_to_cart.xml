@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<data inherit_id="website_sale.products_add_to_cart">
+    <xpath expr="//a[@class='btn btn-default btn-xs a-submit']" position="replace">
+        <t t-if="product.qty_available &gt; 0">
+            <a class="btn btn-default btn-xs a-submit"><span class="fa fa-shopping-cart"/></a>
+        </t>
+        <t t-if="product.qty_available == 0 or product.qty_available &lt; 0">
+            <t t-if="product.website_product_status == 1">
+                <a class="btn btn-default btn-xs a-submit disabled"><span class="fa fa-shopping-cart"/></a>
+            </t>
+            <t t-if="product.website_product_status == 0">
+                <a class="btn btn-default btn-xs a-submit"><span class="fa fa-shopping-cart"/></a>
+            </t>
+        </t>
+    </xpath>
+</data>
+
+
+

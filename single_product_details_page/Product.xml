@@ -1,0 +1,720 @@
+<?xml version="1.0"?>
+<t name="Product" t-name="website_sale.product">
+    <t t-call="website.layout">
+        <t t-set="additional_title" t-value="product.name"/>
+        <style>
+            .sliderImgPre, .sliderImgNext{
+                      top:37% !important;
+                  }
+                  
+            
+                  
+            .carousel-control:hover, .carousel-control:focus {
+                    outline: 0;
+                    color: #ffffff !important;
+                    text-decoration: none !important;
+                    opacity: 0.5;
+                    filter: alpha(opacity=60);
+                }
+          
+            .first_row{
+                background-color: #f0f0f0;
+                width: 100%;
+            }
+            ol.breadcrumb{
+                background-color: transparent;
+                padding: 25px 0px;
+                margin-bottom: 0;
+            }
+            ol.breadcrumb li a, ol.breadcrumb li.active{
+                font-size: 12px;
+                color: #656565;
+                text-transform: uppercase;
+                text-decoration:none;
+            }
+            
+            .product_name_heading_spv{
+                /*font-size:24px;*/
+                color: #252525;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-top:-5px !important
+            }
+            #product_details{
+                padding-left: 36px;
+            }
+            .product_desc_pt_spv{
+                line-height: 24px;
+                color: #797979;
+            }
+            #add_to_cart{
+                width: 196px;
+                background: #c1b497;
+                font-size: 14px;
+                line-height: 1.8;
+                color:white;
+                text-transform: uppercase;
+                padding:10px 24px;
+                border-radius: 0;
+                -webkit-transition: all 0.3s ease-in-out;
+                -moz-transition: all 0.3s ease-in-out;
+                -ms-transition: all 0.3s ease-in-out;
+                -o-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+            }
+            #add_to_cart:hover{
+                /* background: #cdc3ab; */ 
+                color:#fff !important;
+            } 
+            
+            
+            
+            
+            
+            
+            .alert{ 
+                border-radius 0;
+            }
+            .js_variant_change{
+                margin-right:0 !important;
+            }
+            .control-label{
+                margin: 0 10px !important;
+                font-size: 12px;
+            }
+            input[type="radio"], input[type="checkbox"] {
+                margin: 2px 0 0;
+                -webkit-transition: all 0.25s ease-in-out;
+                -moz-transition: all 0.25s ease-in-out;
+                -ms-transition: all 0.25s ease-in-out;
+                -o-transition: all 0.25s ease-in-out;
+                transition: all 0.25s ease-in-out;
+                
+            }
+            input[type="radio"]:focus{
+                -ms-transform: scale(1.3);
+                -webkit-transform: scale(1.3); 
+                transform: scale(1.3);
+            }
+            .product_detail_img{
+                margin-left:0 !important;
+            }
+            
+           
+            .size_guide_div{
+               padding: 20px 0px 35px 0px ;
+              /* border: 2px solid #c1b497; */
+                
+                
+            }
+            
+            /* size div alignment */
+            .js_add_cart_variants{
+             margin-bottom: 26px !important;
+            }
+           
+           
+          .o_alternative_product{
+                display: block;
+               /*  width: 100% !important; */
+                max-height: 100%;
+                margin-bottom: -10% !important;
+            } 
+            .thumbnail {
+               display: block;
+               padding: 4px;
+               margin-bottom: 20px;
+               line-height: 1.42857143;
+               background-color: #ffffff;
+               border:none !important;
+               text-align:center !important;
+           }
+             
+            .hr{
+                height:2px;
+                background-color:#cccccc;
+                width: 99% !important;
+            }
+            
+            .carousel .carousel-control.right {
+                right: 75px;
+            }
+            #o-carousel-product .carousel-indicators li {
+                width: 110px !important;
+            }
+            
+            
+            hr{
+               padding: 4px 0;
+               width: 100%;
+            }
+        
+        </style>
+        <style>
+            @media screen and (min-width: 320px) and (max-width: 768px) {
+            
+                .productDetailsPage{
+                    	margin-bottom: 20px !important;
+                      margin-top: 15px !important;
+                }
+            
+            
+            
+                #singlepg_breadcrumb_prodname_heading{
+                    font-size: 18px;
+                }
+                ol.breadcrumb li a, ol.breadcrumb li.active{
+                    font-size: 10px;
+                }
+                ol.breadcrumb {
+                    float: left !important;
+                }
+                .product_name_heading_spv{
+                    font-size: 18px;
+                }
+                h3.product_price_fontcolor{
+                    font-size: 18px;
+                }
+                
+                .ul_hor_prod_att_name{
+                    margin-top:0px !important;
+                    margin-bottom:15px !important;
+                }
+               #product_details {
+                	padding-left: 0;
+                	padding-right: 0;
+                }
+                
+                
+               
+                 
+                
+                
+                /* breadcrumb start */
+                ol.breadcrumb li a, ol.breadcrumb li.active {
+                  	font-size: 10px;
+                  	color: #656565;
+                  	text-transform: lowercase !important;
+                  }
+                  ol.breadcrumb{
+                      background-color: transparent;
+                      padding: 5px 0px;
+                      margin-bottom: 0;
+                  }
+                  
+                  /* slider css */
+                  	.padleft_zero {
+                      	padding-left: 15px !important;
+                      }
+                  
+                  .sliderImgPre, .sliderImgNext{
+                      top:30% !important;
+                  }
+                  
+                  .carousel .carousel-control.right {
+                  	right: 0;
+                  }
+                .carousel .carousel-control.left {
+                  left: 0;
+                 }
+                 
+                 #o-carousel-product .carousel-inner div.item {
+                 	height: auto !important;
+                 }
+                 
+                 #o-carousel-product .carousel-indicators {
+                	background-color: transparent;
+                	margin: 0px 0px 0px auto;
+                	overflow-y: hidden;
+                	position: static;
+                	white-space: nowrap;
+                	width:  100% !important;
+                	height: 100px !important;
+                	text-align: center;
+                	list-style-position: inside;
+                }
+                
+                .control-label {
+                    margin: 0 4px !important;
+                    font-size: 12px;
+                }
+                
+                
+                .pad_lrz {
+                	padding-left: 0 !important;
+                	padding-right: 0 !important;
+                }
+                
+                
+                
+                .css_quantity {
+                    max-width:100% !important;
+                 }
+                 .input_qty_btn_spv, .js_add_cart_json {
+                  	border-radius: 0;
+                  	background: white !important;
+                  	border: 1px solid #cccccc !important;
+                  	color: #c1b497;
+                  	padding: 18px;
+                  }
+                  .css_quantity input[name="add_qty"] {
+                  	text-align: center;
+                  	height: 50px !important;
+                  }
+                  
+                 #add_to_cart {
+                    	width: 100%;
+                    	background: #c1b497;
+                    	font-size: 12px;
+                    	line-height: 1.5;
+                    	color: white;
+                    	text-transform: uppercase;
+                    	padding: 8px 8px !important;
+                    	border-radius: 0;;
+                    }
+                    
+                    .sizeTable{
+                        padding-left:0 !important;
+                        padding-right:0 !importan;
+                        font-size:12px ;
+                    }
+                    .sizeTable > table{
+                        width:auto !important;
+                    }
+                    
+                    
+                    .size_guide_div{
+                        margin-bottom: 0 !important;
+                        margin-top: 15px !important;
+                        padding: 0px 0px 2px 0px;
+                        border: 2px solid #c1b497;
+                    }
+                    
+                    .size_guide_div h3{
+                        margin-top: 12px;
+                        margin-bottom: 10px;
+                    }
+                    
+                    #product_detail > .mt24{
+                        margin-top: 20px !important;
+                    }
+                 
+                
+                
+            }
+            
+            
+            @media screen and (min-width: 768px) and (max-width: 1024px) {
+                .product_name_heading_spv{
+                    font-size: 18px;
+                }
+                h3.product_price_fontcolor{
+                    font-size: 18px;
+                }
+                .ul_hor_prod_att_name{
+                    margin-top:0px !important;
+                    margin-bottom:32px;
+                }
+                #product_details{
+                   padding-left: 15px;
+                }
+               
+                .product_desc_pt_spv {
+                    line-height: 20px;
+                    font-size: 13px;
+                }
+                
+                .product_detail_img {
+                     margin-left: 0 !important; 
+                }
+                .padleft_zero {
+                     padding-left: 15px !important;
+                 }
+                 
+                .sliderImgPre, .sliderImgNext{
+                      top:41% !important;
+                  }
+                  
+                  .carousel .carousel-control.right {
+                  	right: 0;
+                  }
+                .carousel .carousel-control.left {
+                  left: 0;
+                 } 
+             
+               #o-carousel-product .carousel-inner div.item {
+                    height: 100% !important;
+                }
+                #add_to_cart {
+                    	width: 100%;
+                    	background: #c1b497;
+                    	font-size: 12px;
+                    	line-height: 1.5;
+                    	color: white;
+                    	text-transform: uppercase;
+                    	padding: 8px 8px !important;
+                    	border-radius: 0;
+                	}
+                	
+                #product_detail > .mt24 {
+                     margin-top: 35px !important;
+                 }
+                 
+                 .size_guide_div {
+                     margin-bottom: 0 !important;
+                     margin-top: 15px !important;
+                     padding: 30px 0px 30px 0px !important;
+                     border: 2px solid #c1b497;
+                 }
+                 
+                .o_alternative_product{
+                     display: block;
+                    /*  width: 100% !important; */
+                     max-height: 100%;
+                     margin-bottom: 0% !important;
+                 }
+                 
+                 .thumbnail {
+                       display: block;
+                       padding: 4px;
+                       margin-bottom: 20px;
+                       line-height: 1.42857143;
+                       background-color: #ffffff;
+                       border: none !important;
+                       text-align: center !important;
+                       float: left;
+                   }
+                 
+                 
+                 
+                 
+            }
+            @media screen and (min-width: 1024px) and (max-width: 1366px) {
+                .sliderImgPre, .sliderImgNext{
+                      top:37% !important;
+                  }
+            }
+            @media screen and (min-width: 1200px){
+                .sliderImgPre, .sliderImgNext{
+                      top:37% !important;
+                  }
+            }
+        </style>
+        <div style="font-family: 'Oxygen', sans-serif;">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 first_row">
+                <div class='container' style='padding-left:0'>
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 pad_lrz">
+                        <div class=" " style='display:none'>
+                            <t t-call="website_sale.search"/>
+                        </div>
+                        <div class='col-sm-6 padleft_zero'>
+                            <h3 id='singlepg_breadcrumb_prodname_heading' class='text-uppercase' itemprop="name" t-field="product.name"></h3>
+                        </div>
+                        <div class="col-sm-6 col-lg-6" style='padding-right:0'>
+                            <ol class="breadcrumb pull-right">
+                                <li>
+                                    <a t-att-href="keep(category=0)">Products</a>
+                                </li>
+                                <li t-if="category">
+                                    <a t-att-href="keep('/shop/category/%s' % slug(category), category=0)" t-field="category.name"/>
+                                </li>
+                                <li class="active">
+                                    <span t-field="product.name"/>
+                                </li>
+                            </ol>
+                        </div>
+                        <div id="website_published_button" class="col-sm-2">
+                            <t t-call="website.publish_management" groups="sales_team.group_sale_manager">
+                                <t t-set="object" t-value="product"/>
+                                <t t-set="publish_edit" t-value="True"/>
+                                <t t-set="action" t-value="'product.product_template_action'"/></t>
+                        </div>
+                        <div class=" text-right" style='display:none'>
+                            <t t-call="website_sale.pricelist_list"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div itemscope="itemscope" itemtype="http://schema.org/Product" id="wrap" class="js_sale">
+                <section t-attf-class="container padleft_zero oe_website_sale #{(compute_currency(product.lst_price) - product.website_price) &gt; 0.01 and website.get_current_pricelist().discount_policy == 'without_discount'  and 'discount'}" id="product_detail">
+                    <div class="col-md-12 col-lg-12 col-xs-12 productDetailsPage mb64 mt64" style='padding-left:0; padding-right:0'>
+                        <div class="col-sm-12 col-md-7 col-lg-7 col-xs-12 pad_lrz">
+                            <span itemprop="image" t-field="product.image" t-options="{'widget': 'image', 'class': 'product_detail_img', 'alt-field': 'name', 'zoom': 'image'}" groups="!website_sale.group_website_multi_image"/>
+                            <t groups="website_sale.group_website_multi_image">
+                                <t t-set="variant_img" t-value="product.product_variant_ids[0].image_variant"/>
+                                <t t-set="image_ids" t-value="product.product_image_ids"/>
+                                <div id="o-carousel-product" class="carousel slide" data-ride="carousel" data-interval="0">
+                                    <div class="carousel-outer">
+                                        <div class="carousel-inner">
+                                            <div class="item active" itemprop="image" t-field="product.product_variant_ids[0].image" t-options="{&quot;widget&quot;: &quot;image&quot;, &quot;class&quot;: &quot;product_detail_img js_variant_img&quot;, &quot;alt-field&quot;: &quot;name&quot;, &quot;zoom&quot;: &quot;image&quot;}"/>
+                                            <div t-if="variant_img" class="item" itemprop="image" t-field="product.image" t-options="{&quot;widget&quot;: &quot;image&quot;, &quot;class&quot;: &quot;product_detail_img&quot;, &quot;alt-field&quot;: &quot;name&quot;, &quot;zoom&quot;: &quot;image&quot;}"/>
+                                            <t t-if="len(image_ids)" t-foreach="image_ids" t-as="pimg">
+                                                <div class="item" t-field="pimg.image" t-options="{&quot;widget&quot;: &quot;image&quot;, &quot;class&quot;: &quot;product_detail_img&quot;, &quot;alt-field&quot;: &quot;name&quot;, &quot;zoom&quot;: &quot;image&quot; }"/>
+                                            </t>
+                                        </div>
+                                        <t t-if="len(image_ids) or variant_img">
+                                            <a class="carousel-control left" href="#o-carousel-product" role="button" data-slide="prev">
+                                                <span class="fa fa-chevron-left sliderImgPre" aria-hidden="true"/>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control right" href="#o-carousel-product" role="button" data-slide="next">
+                                                <span class="fa fa-chevron-right sliderImgNext" aria-hidden="true"/>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </t>
+                                    </div>
+                                    <ol class="carousel-indicators" style="width:91% !important" t-if="len(image_ids) or variant_img">
+                                        <li data-target="#o-carousel-product" data-slide-to="0" class="active">
+                                            <img class="img img-responsive js_variant_img_small" t-attf-src="/website/image/product.product/{{product.product_variant_ids[0].id}}/image/90x90" t-att-alt="product.name"/>
+                                        </li>
+                                        <li t-if="variant_img" data-target="#o-carousel-product" data-slide-to="1" class="">
+                                            <img class="img img-responsive" t-attf-src="/website/image/product.template/{{product.id}}/image/90x90" t-att-alt="product.name"/>
+                                        </li>
+                                        <t t-if="len(image_ids)" t-foreach="image_ids" t-as="pimg">
+                                            <li data-target="#o-carousel-product" t-att-data-slide-to="pimg_index + (variant_img and 2 or 1)">
+                                                <img class="img img-responsive" t-attf-src="/website/image/product.image/{{pimg.id}}/image/90x90" t-att-alt="pimg.name"/>
+                                            </li>
+                                        </t>
+                                    </ol>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-lg-5 col-xs-12" id="product_details">
+                            <h2 itemprop="name" t-field="product.name" class='text-right product_name_heading_spv'>Product Name</h2>
+                            <span itemprop="url" style="display:none;" t-esc="'/shop/product/%s' % slug(product)"/>
+                            <div class='text-right'>
+                                <t t-call="website_sale.product_price"/>
+                            </div>
+                            <t t-set="attribute_value_ids" t-value="get_attribute_value_ids(product)"/>
+                            <form action="/shop/cart/update" class="js_add_cart_variants" t-att-data-attribute_value_ids="attribute_value_ids" method="POST">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <div class="js_product" t-if="product.product_variant_ids">
+                                    <hr t-if="product.description_sale"/>
+                                    <div>
+                                        <p t-field="product.description_sale" class="product_desc_pt_spv mt24 mb24" style="text-align: right !important; " />
+                                    </div>
+                                    <hr/>
+                                    <div class='mb24'>
+                                        <t t-placeholder="select">
+                                            <input type="hidden" class="product_id" name="product_id" t-att-value="product.product_variant_id.id if len(product.product_variant_ids) == 1 else '0'"/>
+                                            <t t-call="website_sale.variants">
+                                                <t t-set="ul_class" t-value="'nav-stacked'"/></t>
+                                        </t>
+                                        <hr/>
+                                    </div>
+                                    <div class='col-sm-12 pad_lrz'>
+                                        <div class='proQntCart pull-right'>
+                                            <p t-if="len(product.product_variant_ids) &gt; 1" class="css_not_available_msg bg-danger" style="padding: 15px;">Product not available</p>
+                                            <a id="add_to_cart" class="btn mt8 js_check_product a-submit" href="#">Add to Cart 
+                                                <i class='fa fa-angle-right'></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class='col-sm-12 mt32 pad_lrz hidden'>
+                                        <div class='col-sm-6 pad_lrz mt48'>
+                                            <t t-call="website_sale.product_price"/>
+                                        </div>
+                                        <div class='col-sm-6' style='padding-right:0'>
+                                            <p t-if="len(product.product_variant_ids) &gt; 1" class="css_not_available_msg bg-danger" style="padding: 15px;">Product not available</p>
+                                            <a id="add_to_cart" class="btn mt8 js_check_product a-submit" href="#">Add to Cart 
+                                                <i class='fa fa-angle-right'></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <hr t-if="product.availability != 'empty'"/>
+                            <div t-if="product.availability == 'in_stock'" class=" col-xs-12 mt24 col-sm-12 alert alert-success">
+                                <span class="fa fa-check"/>
+                                <span>In Stock</span>
+                            </div>
+                            <div t-if="product.availability == 'warning'" class="col-xs-12 mt24 col-sm-12 text-center alert alert-warning">
+                                <span class="fa fa-warning"/>
+                                <span class="fa fa-meh-o fa-2x"/>
+                                <span style='margin-left:20px;' t-field="product.availability_warning"/>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="col-md-12 col-lg-12 col-xs-12">-->
+                    <span t-if="product.categ_id.parent_id.id == 40 or product.categ_id.parent_id.id == 4 or product.categ_id.parent_id.id == 3">
+                    <div class='col-xs-12 col-sm-12 hr'></div>
+                    <div class='col-xs-12 col-sm-4 mt24 mb24 size_guide_div' >
+                        <h3 class='text-center'> Size Guide  
+                            <!--<strong>-->
+                            <!--    <span t-field='product.categ_id.parent_id.name' />-->
+                            <!--</strong>-->
+                        </h3>
+                    </div>
+                    <div class='col-sm-7 col-sm-offset-1 col-xs-12 mt24 mb24 table-responsive sizeTable' t-if='product.categ_id.parent_id.id == 3'>
+                        <!--PANJABI SIZE CHART-->
+                        <!--<table class='table table-stripped table-hover ' style="margin-bottom:0px !important">-->
+                        <!--    <thead>-->
+                        <!--        <tr>-->
+                        <!--            <th width='150'> Measurement</th>-->
+                        <!--            <th> XS </th>-->
+                        <!--            <th> S </th>-->
+                        <!--            <th> M </th>-->
+                        <!--            <th> L </th>-->
+                        <!--            <th> XL </th>-->
+                        <!--            <th> XXL </th>-->
+                        <!--        </tr>-->
+                        <!--    </thead>-->
+                        <!--    <tbody>-->
+                        <!--        <tr>-->
+                        <!--            <td> 1/2 Chest Width </td>-->
+                        <!--            <td> 19.75" </td>-->
+                        <!--            <td> 20.75" </td>-->
+                        <!--            <td> 21.75" </td>-->
+                        <!--            <td> 22.75" </td>-->
+                        <!--            <td> 24" </td>-->
+                        <!--            <td> 25.75" </td>-->
+                        <!--        </tr>-->
+                        <!--        <tr>-->
+                        <!--            <td> Body Length</td>-->
+                        <!--            <td> 41.25" </td>-->
+                        <!--            <td> 42.25" </td>-->
+                        <!--            <td> 43.25" </td>-->
+                        <!--            <td> 46.5" </td>-->
+                        <!--            <td> 47.25" </td>-->
+                        <!--            <td> 47.25" </td>-->
+                        <!--        </tr>-->
+                        <!--    </tbody>-->
+                        <!--    <tfoot></tfoot>-->
+                        <!--</table>-->
+                        <table class="table table-stripped table-hover" style="margin-bottom:0px !important">
+                            <!--PANJABI-PREMIUM-PLATINUM-SHARA SIZE CHART-->
+                         <thead>
+                           <tr>
+                             <th width="20%" >Measurement</th>
+                             <th>XS</th>
+                             <th>S</th>
+                             <th>M</th>
+                             <th>L</th>
+                             <th>XL</th>
+                             <th>XXL</th>
+                           </tr>
+                         </thead>
+                         <tbody>
+                           <tr>
+                                <td>1/2 Chest Width</td>
+                                <td>19.75"</td>
+                                <td>20.75"</td>
+                                <td>21.75"</td>
+                                <td>22.75"</td>
+                                <td>24"</td>
+                                <td>25.75"</td>
+                           </tr>
+                           <tr>
+                                <td> Body Length</td>
+                                <td>41.25"</td>
+                                <td>42.25"</td>
+                                <td>43.25"</td>
+                                <td>46.5"</td>
+                                <td>47.25"</td>
+                                <td>47.25"</td>
+                            </tr>
+                         </tbody>
+                       </table>
+                    </div>
+                    <div class='col-sm-7 col-sm-offset-1 col-xs-12 mt24 mb24 table-responsive sizeTable' t-if='product.categ_id.parent_id.id == 40'>
+                        <!--KABLI SIZE CHART-->
+                        <table class='table table-stripped table-hover '>
+                            <thead>
+                                <tr>
+                                    <th width="20%"> Measurement </th>
+                                    <th> XS </th>
+                                    <th> S </th>
+                                    <th> M </th>
+                                    <th> L </th>
+                                    <th> XL </th>
+                                    <th> XXL </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> 1/2 Chest Width </td>
+                                    <td> 19.75" </td>
+                                    <td> 20.75" </td>
+                                    <td> 21.75" </td>
+                                    <td> 22.75" </td>
+                                    <td> 24" </td>
+                                    <td> 25.75" </td>
+                                </tr>
+                                <tr>
+                                    <td> Body Length</td>
+                                    <td> 41.25" </td>
+                                    <td> 42.25" </td>
+                                    <td> 43.25" </td>
+                                    <td> 46.5" </td>
+                                    <td> 47.25" </td>
+                                    <td> 47.25" </td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                    
+                    
+                    
+                    <div class='col-sm-7 col-sm-offset-1 col-xs-12 mt24 mb24 table-responsive sizeTable' t-if='product.categ_id.parent_id.id == 4 '>
+                        <!--L-CHINO SIZE CHART-->
+                        <table class='table table-stripped table-hover '>
+                            <thead>
+                                <tr>
+                                    <th width="20%"> Measurement</th>
+                                    <th class='text-center'> XS </th>
+                                    <th class='text-center'> S </th>
+                                    <th class='text-center'> M </th>
+                                    <th class='text-center'> L </th>
+                                    <th class='text-center'> XL </th>
+                                    <th class='text-center'> XXL </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> Waist </td>
+                                    <td> 27" - 29"</td>
+                                    <td> 30" - 32" </td>
+                                    <td> 33" - 35" </td>
+                                    <td> 36" - 38" </td>
+                                    <td> 39" - 41" </td>
+                                    <td> 42" - 44"</td>
+                                </tr>
+                                <tr>
+                                    <td> Height Range</td>
+                                    <td> 5'4" - 5'8" </td>
+                                    <td> 5'5" - 5'9" </td>
+                                    <td> 5'6" - 5'10" </td>
+                                    <td> 5'7" - 5'11" </td>
+                                    <td> 5'8" - 6' </td>
+                                    <td> 5'9" - 6'1" </td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                   
+                    
+                    <div class='col-xs-12 col-sm-12 hr mb20'></div> </span>
+                    <!--</div>   -->
+                </section>
+                <div itemprop="description" t-field="product.website_description" class="oe_structure mt16" id="product_full_description"/>
+                <t t-set="head">
+                    <!-- Facebook and linkedin sharing data -->
+                    <meta property="og:type" content="website"/>
+                    <meta property="og:url" t-att-content="request.httprequest.url"/>
+                    <meta property="og:image" t-attf-content="#{request.httprequest.url_root}web/image/product.template/#{product.id}/image"/>
+                    <meta property="og:description" t-att-content="product.description_sale"/>
+                    <!--  Twitter sharing data -->
+                    <meta name="twitter:card" content="summary_large_image"/>
+                    <meta name="twitter:site" t-attf-content="@#{res_company.name}"/>
+                    <meta name="twitter:title" t-att-content="product.name"/>
+                    <meta name="twitter:description" t-att-content="product.description_sale"/>
+                    <meta name="twitter:image" t-attf-content="#{request.httprequest.url_root}web/image/product.template/#{product.id}/image"/>
+                </t>
+            </div>
+        </div>
+    </t>
+</t>
+
+    

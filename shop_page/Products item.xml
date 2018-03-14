@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<t name="Products item" t-name="website_sale.products_item">
+        <form action="/shop/cart/update" method="post">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+            <div itemscope="itemscope" itemtype="http://schema.org/Product">
+                <div class="ribbon-wrapper">
+                    <div class="ribbon btn btn-danger">Sale</div>
+                </div>
+            
+                <style>
+                    .oe_product .product_price {
+                        padding: 5px 0;
+                        position: relative;
+                    }
+                    
+                    #products_grid.col-md-9 .oe-height-4 {
+                        height: auto;
+                    }
+                    .product_name_heading{
+                        padding:0 5% 0 0;
+                        margin-bottom:0;
+                        text-transform: uppercase;
+                    }
+                    .product_name_heading:hover a  {
+                        color:#c1b497;
+                        
+                    }
+                    .product_name_heading a{
+                        color: #252525;
+                        text-decoration: none;
+                        -webkit-transition: all 0.3s ease-in-out;
+                        -moz-transition: all 0.3s ease-in-out;
+                        -ms-transition: all 0.3s ease-in-out;
+                        -o-transition: all 0.3s ease-in-out;
+                        transition: all 0.3s; 
+                    }
+                    .bdt_symbol, .shoppg_prod_price{
+                        display: inline; 
+                    }
+                    .bdt_symbol{
+                        font-size: 18px;
+                       
+                    }
+                    .shoppg_prod_price{
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                    
+                </style>
+                
+                
+                 <style>
+                     
+                        @media (max-width: 400px){
+                           #products_grid .oe_product.oe_grid {
+                               height: auto; 
+                           }
+                       }
+                       @media (max-width: 768px){
+                           #products_grid .oe_product.oe_grid {
+                               height: auto;
+                           }
+                       }
+                    
+                        @media screen and (min-width: 320px) and (max-width: 767px) {
+                            
+                            #categoryWiseProductDetail{
+                                margin-bottom: 0 !imporatnt;
+                                margin-top: 0 !important;
+                                display: block;
+                                font-size: 14px !important;
+                            }    
+                            #products_grid .oe_product.oe_grid {
+                             	height: auto;
+                                padding-right:15px !important;
+                             	/* padding-left: 15px !important; */
+                             }
+                             
+                            #categoryWiseProductNamePrice{
+                                padding-left: 0 !important;
+                                padding-right: 0 !important;
+                            }
+                        }
+                        @media screen and (min-width: 786px) and (max-width: 1024px) {
+                          #categoryWiseProductNamePrice{
+                                padding-left: 0 !important;
+                                padding-right: 0 !important;
+                            }
+                            
+                            
+                          
+                        }
+                        @media screen and (min-width: 992px) and (max-width: 1366px) {
+                          #categoryWiseProductNamePrice{
+                                padding-left: 0 !important;
+                                padding-right: 0 !important;
+                            }
+                          
+                        }
+                        @media screen and (min-width: 1200px){
+                          #categoryWiseProductNamePrice{
+                                padding-left: 0 !important;
+                                padding-right: 0 !important;
+                            }
+                        }
+                    </style>
+            
+                
+                <div class="image-mask-box-s">
+                    <div class="thumbnail-s">
+                        <div class="image-wrapper-s">
+                            <span t-field="product.image" t-options="{'widget': 'image',  'resize': 'None if product_image_big else 360x240'}" t-att-alt="product.name" style='margin-top:10px; margin-bottom:10px;'/>
+                            <div class="masking-s">
+                                <a t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" class="btnx-s btn-masking-s "> <i class='fa fa-shopping-cart'></i> </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <t t-if="show_publish">
+                    <div id="website_published_button" class="" groups="sales_team.group_sale_manager">
+                        <t t-call="website.publish_management">
+                            <t t-set="object" t-value="product"/>
+                            <t t-set="publish_edit" t-value="True"/>
+                            <t t-set="action" t-value="'product.product_template_action'"/>
+                        </t>
+                    </div>
+                </t>
+                
+                <div id="categoryWiseProductDetail" style='background: transparent; border-top: 0; margin-bottom:10%; margin-top:10%; display: block;'>
+                    <!--<div class='row' style=' position:relative;background:transparent'>-->
+                        <div class='col-md-12' id="categoryWiseProductNamePrice" style='margin:0;'>
+                            <h5 class='product_name_heading'>
+                                <strong>
+                                    <a itemprop="name" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" t-field="product.name"/>
+                                </strong>
+                            </h5>
+                            
+                            <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
+                                <b>
+                                    
+                                    <t t-if="(compute_currency(product.lst_price) - product.website_price ) &gt; 0.01  and website.get_current_pricelist().discount_policy=='without_discount'">
+                                        <del class="text-danger mr8" style="white-space: nowrap;" t-esc="compute_currency(product.website_public_price)" t-options="{'widget': 'monetary', 'display_currency': website.get_current_pricelist().currency_id, 'from_currency': website.currency_id}"/>
+                                    </t>
+                                    
+                                    <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+                                    
+                                    <p style='text-transform: uppercase;'> 
+                                        <!--<span t-esc="product.website_price" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>-->
+                                        <!--<span itemprop="price" style="display:none;" t-esc="product.website_price"/>-->
+                                        <p class='bdt_symbol'>৳</p> 
+                                        <p class='shoppg_prod_price' t-field='product.website_price' />
+                                    </p>
+                                    
+                                </b>
+                            </div>
+                        </div>
+                    <!--</div>-->
+                </div>
+            </div>
+        </form>
+    </t>
+
+    
