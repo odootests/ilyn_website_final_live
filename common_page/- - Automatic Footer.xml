@@ -240,48 +240,67 @@
                     
                     console.log(ec_subscription_msg);
                 
-                    var url123 = "http://bangladeshsms.com/smsapi?api_key=C200038059f06f05487361.76812382&amp;type=text&amp;contacts="+ec_cust_phone+"&amp;senderid=8804445629100&amp;msg="+ec_subscription_msg;
+                     var url = "http://bangladeshsms.com/smsapi?api_key=C20005045aa90e3754a923.75079885&amp;type=text&amp;contacts="+ec_cust_phone+"&amp;senderid=8804445629100&amp;msg="+ec_subscription_msg;
                     
-                    function createCORSRequest(method, url) {
-                      var xhr = new XMLHttpRequest();
-                      if ("withCredentials" in xhr) {
-                        // XHR for Chrome/Firefox/Opera/Safari.
-                        xhr.open(method, url, true);
-                      } else if (typeof XDomainRequest != "undefined") {
-                        // XDomainRequest for IE.
-                        xhr = new XDomainRequest();
-                        xhr.open(method, url);
-                      } else {
-                        // CORS not supported.
-                        xhr = null;
-                      }
-                      return xhr;
-                    }
-
-
-                    function makeCorsRequest() {
-                        var url = "http://bangladeshsms.com/smsapi?api_key=C200038059f06f05487361.76812382&amp;type=text&amp;contacts="+ec_cust_phone+"&amp;senderid=8804445629100&amp;msg="+ec_subscription_msg;
-                        console.log("Cors Request");
-                        var xhr = createCORSRequest('GET', url);
-                        if (!xhr) {
-                          console.log('CORS not supported');
-                          return;
+                     $.ajax({
+                        url:url,
+                        async:false,
+                        type: "POST",
+                        dataType: "json",
+                        success: function (result) {
+                            JSON.parse(result);
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            console.log(xhr);
                         }
+                    });
+                
+                 //   var url123 = "http://bangladeshsms.com/smsapi?api_key=C20005045aa90e3754a923.75079885&amp;type=text&amp;contacts="+ec_cust_phone+"&amp;senderid=8804445629100&amp;msg="+ec_subscription_msg;
+                    
+                 //   function createCORSRequest(method, url) {
+                   //   var xhr = new XMLHttpRequest();
+                    //  xhr.withCredentials = false;
+                      
+                      
+                  //    if ("withCredentials" in xhr) {
+                        // XHR for Chrome/Firefox/Opera/Safari.
+                    //    xhr.open(method, url, true);
+                     
+                   //   } else if (typeof XDomainRequest != "undefined") {
+                        // XDomainRequest for IE.
+                  //      xhr = new XDomainRequest();
+                   //     xhr.open(method, url);
+                  //    } else {
+                        // CORS not supported.
+                  //      xhr = null;
+                 //     }
+                 //     return xhr;
+                 //   }
+
+
+                   // function makeCorsRequest() {
+                    //    var url = "http://bangladeshsms.com/smsapi?api_key=C200038059f06f05487361.76812382&amp;type=text&amp;contacts="+ec_cust_phone+"&amp;senderid=8804445629100&amp;msg="+ec_subscription_msg;
+                    //    console.log("Cors Request");
+                   //     var xhr = createCORSRequest('GET', url);
+                    //    if (!xhr) {
+                   //       console.log('CORS not supported');
+                   //       return;
+                   //     }
                       
                         // Response handlers.
-                        xhr.onload = function() {
-                          var text = xhr.responseText;
-                          var title = getTitle(text);
-                          console.log('Response from CORS request to ' + url + ': ' + title);
-                        };
+                 //       xhr.onload = function() {
+                  //        var text = xhr.responseText;
+                  //        var title = getTitle(text);
+                   //       console.log('Response from CORS request to ' + url + ': ' + title);
+                 //       };
                       
-                        xhr.onerror = function() {
+                 //       xhr.onerror = function() {
                           console.log('Woops, there was an error making the request.');
-                        };
+                //        };
                       
-                        xhr.send();
-                    }
-                    makeCorsRequest()
+                //        xhr.send();
+                //    }
+                 //   makeCorsRequest()
                     
                 });
                 
