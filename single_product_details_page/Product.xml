@@ -264,6 +264,7 @@
                   }
                   
                  #add_to_cart {
+                        display: inline-block !important;
                     	width: 100%;
                     	background: #c1b497;
                     	font-size: 12px;
@@ -347,6 +348,7 @@
                     height: 100% !important;
                 }
                 #add_to_cart {
+                        display: inline-block !important;
                     	width: 100%;
                     	background: #c1b497;
                     	font-size: 12px;
